@@ -35,11 +35,11 @@ def home():
 
 @app.route('/anniversary')
 def anniversary():
-    return jsonify({
-        "message": f"Feliz aniversario, {PARTNER_NAME} 💖",
-        "days_together": calculate_days_together(),
-        "first_date": FIRST_DATE
-    })
+    return render_template('anniversary.html',
+                         partner_name=PARTNER_NAME,
+                         days_together=calculate_days_together(),
+                         first_date=FIRST_DATE,
+                         secret_code="TEAMO<3")
 
 @app.route('/home')
 def home_page():
